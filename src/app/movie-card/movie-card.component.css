@@ -1,0 +1,28 @@
+.movie-container{
+    width: 400px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid black;
+    padding: 16px;
+}
+
+img{
+    height: 450px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.movie-spec{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.movie-spec > p {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+.movie-summary{
+    margin-top: 0px;
+}
