@@ -1,26 +1,22 @@
 import { Component, Input } from '@angular/core';
-
-type movieTemplate = {
-  name: string,
-  poster: string,
-  rating: number,
-  summary: string
-}
+import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-card',
   templateUrl: './movie-card.component.html',
-  styleUrls: ['./movie-card.component.css']
+  styleUrls: ['./movie-card.component.css'],
 })
 export class MovieCardComponent {
-  like:number = 0
-  @Input() movie: movieTemplate = {
-    name: 'Vikram',
-    poster:
-      'https://m.media-amazon.com/images/M/MV5BMmJhYTYxMGEtNjQ5NS00MWZiLWEwN2ItYjJmMWE2YTU1YWYxXkEyXkFqcGdeQXVyMTEzNzg0Mjkx._V1_.jpg',
-    rating: 8.4,
-    summary:
-      'Members of a black ops team must track and eliminate a gang of masked murderers.',
-  };
-}
+  constructor(private fb: FormBuilder, private router: Router) {}
+  like: number = 0;
+  @Input() movies: any = [];
 
+  deleteMovie(movieName: string) {
+    this.movies = this.movies.filter((movie: any) => movie.name !== movieName);
+  }
+
+  infoMovie(i: number) {
+    this.router.navigate([`info/${i}`]);
+  }
+}

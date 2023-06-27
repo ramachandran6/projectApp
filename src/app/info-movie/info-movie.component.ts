@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-movie-list',
-  templateUrl: './movie-list.component.html',
-  styleUrls: ['./movie-list.component.css'],
+  selector: 'app-info-movie',
+  templateUrl: './info-movie.component.html',
+  styleUrls: ['./info-movie.component.css'],
 })
-export class MovieListComponent {
-  // constructor(private movieService: MovieSer)
-  movies = [
+export class InfoMovieComponent {
+  constructor(private router: ActivatedRoute, private route: Router) {}
+
+  movies: any = [
     {
       name: 'Vikram',
       poster:
@@ -95,4 +97,13 @@ export class MovieListComponent {
       rating: 8.8,
     },
   ];
+  movie: any = {};
+
+  ngOnInit() {
+    this.router.paramMap.subscribe((route) => {
+      const id = route.get('id') as any;
+      this.movie = this.movies[id];
+      // console.log(id);
+    });
+  }
 }

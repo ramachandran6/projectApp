@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
+import { Injectable } from '@angular/core';
 
-@Component({
-  selector: 'app-movie-list',
-  templateUrl: './movie-list.component.html',
-  styleUrls: ['./movie-list.component.css'],
+@Injectable({
+  providedIn: 'root',
 })
-export class MovieListComponent {
-  // constructor(private movieService: MovieSer)
+export class MovieServicesService {
+  constructor() {}
+
   movies = [
     {
       name: 'Vikram',

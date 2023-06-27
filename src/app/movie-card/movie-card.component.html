@@ -1,11 +1,12 @@
-<div class="movie-container">
+<div class="movie-container" *ngFor="let movie of movies; let i = index">
   <img [src]="movie.poster" />
   <div class="movie-spec">
     <h2>{{ movie.name }}</h2>
     <p>🌟 {{ movie.rating }}</p>
   </div>
   <p class="movie-summary">{{ movie.summary }}</p>
-  <button>{{ like }}</button>
+  <button (click)="infoMovie(i)">info</button>
+  <button>update</button>
   <!-- <button>👎 {{dislike}}</button> -->
-  <button>delete</button>
+  <button (click)="deleteMovie(movie.name)">delete</button>
 </div>
